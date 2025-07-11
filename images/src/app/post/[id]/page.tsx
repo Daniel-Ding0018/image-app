@@ -1,4 +1,5 @@
 export default function PostPage({ params }: { params: { id: string } }) {
+  console.log(process.env)
   return (
     <main className="text-center mt-10">
       <h1>Post {params.id}</h1>
