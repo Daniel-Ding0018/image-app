@@ -1,6 +1,5 @@
-import { db, eq } from "@/db"
-import { posts as postsTable } from '@/db/schema/posts'
-import { users as usersTable } from '@/db/schema/users'
+import { query } from "../db/queries/postFeed"
+import FeedPost from "@/app/components/feed-post"
 
 export default async function Home() {
 
@@ -9,16 +8,13 @@ export default async function Home() {
 
 
   // Posts inner join Users
-  const posts = await db
-    .select()
-    .from(postsTable)
-    .innerJoin(usersTable, eq(usersTable.id, postsTable.userId))
+  const posts = await query.execute()
 
-  console.log(posts);
   return (
-    <main className="text-center mt-10">
-      <h1>Threads</h1>
-      <p>Threads is a clone of x.com</p>
-    </main>
+    <div className="flex flex-col divide-y" style={{ height: 3000 }}>
+      {posts.map((post) => (
+        <FeedPost key={post.id} post={post}/>
+      ))}
+    </div>
   );
 }
