@@ -1,8 +1,8 @@
-export default function PostPage({ params }: { params: { id: string } }) {
-  console.log(process.env)
+export default async function PostPage({ params }: {params: Promise<{ id: string }>}) {
+const { id } = await params;
   return (
     <main className="text-center mt-10">
-      <h1>Post {params.id}</h1>
+      <h1>Post {id}</h1>
       <p>TODO: display post</p>
     </main>
   );

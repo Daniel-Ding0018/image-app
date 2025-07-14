@@ -11,6 +11,8 @@ export const query = db
   createdAt: postsTable.createdAt,
   user: {
     id: usersTable.id,
+    firstname: usersTable.firstName,
+    lastname: usersTable.lastName,
     username: usersTable.username,
     avatar: usersTable.avatar,
   },

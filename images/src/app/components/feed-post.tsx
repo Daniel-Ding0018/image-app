@@ -44,7 +44,7 @@ export default function FeedPost({ post }: { post: Post }) {
               <div>{post.user.username}</div>
             </Link>
             <p className="dark:text-neutral-400 text-neutral-600">
-              {timeAgoShort(new Date(post.date))}
+              {timeAgoShort(new Date(post.createdAt))}
             </p>
           </div>
           <Link href={`/post/${post.id}`}>
@@ -55,9 +55,9 @@ export default function FeedPost({ post }: { post: Post }) {
         </div>
       </div>
       <div className="flex gap-2 dark:text-neutral-400 text-neutral-600">
-        <p>{post.likes} likes</p>
+        <p>{10} likes</p>
         <p>·</p>
-        <p>{post.replies} replies</p>
+        <p>{2} replies</p>
         {/* <p>{post.retweets} retweets</p> */}
       </div>
     </article>
