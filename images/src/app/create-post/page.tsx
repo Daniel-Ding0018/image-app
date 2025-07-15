@@ -1,6 +1,6 @@
 import CreatePostForm from "@/app/create-post/create-post-form"
 
-import { db, eq, sql } from "@/db"
+import { db, eq } from "@/db"
 import { users as usersTable } from "@/db/schema/users"
 
 
