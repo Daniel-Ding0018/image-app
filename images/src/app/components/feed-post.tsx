@@ -6,7 +6,6 @@ import PostActions from "./post-actions"
 import timeAgoShort from "../utils/timeAgoShort"
 
 export default function FeedPost({ post }: { post: Post }) {
-  console.log(post)
   function postMedia() {
     if (!post.media) {
       return null
