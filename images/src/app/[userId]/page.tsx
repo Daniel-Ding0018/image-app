@@ -19,7 +19,6 @@ export default async function ProfilePage({ params }: { params: { userId: string
   }
 
   const posts = await userPostsQuery.execute({ userId: user.id })
-  console.log(user)
   return (
     <>
       <Profile user={{name: user.username, image: user.avatar}} />

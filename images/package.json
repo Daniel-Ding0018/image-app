@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/s3-request-presigner": "^3.844.0",
     "@neondatabase/serverless": "^1.0.1",
+    "client-s3": "github:aws-sdk/client-s3",
     "dotenv": "^17.0.1",
     "drizzle-orm": "^0.44.2",
     "next": "15.3.2",

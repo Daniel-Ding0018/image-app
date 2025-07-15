@@ -26,7 +26,7 @@ const baseQuery = db
 })
 .from(postsTable)
 .innerJoin(usersTable, eq(usersTable.id, postsTable.userId))
-.leftJoin(mediaTable, eq(mediaTable.id, postsTable.mediaId))
+.leftJoin(mediaTable, eq(mediaTable.postId, postsTable.id))
 
 export const query = db
 .select({
@@ -50,7 +50,7 @@ export const query = db
 })
 .from(postsTable)
 .innerJoin(usersTable, eq(usersTable.id, postsTable.userId))
-.leftJoin(mediaTable, eq(mediaTable.id, postsTable.mediaId))
+.leftJoin(mediaTable, eq(mediaTable.postId, postsTable.id))
 .prepare("select_posts_for_feed")
 
 export type Result = Awaited<ReturnType<typeof query.execute>>[0];
