@@ -2,7 +2,7 @@ import FeedPost from "@/app/components/feed-post"
 import { notFound } from "next/navigation"
 
 import { users as usersTable } from "@/db/schema/users"
-import { db, eq, sql } from "@/db"
+import { db, eq } from "@/db"
 import { userPostsQuery } from "@/db/queries/postFeed"
 
 import Profile from "./profile"

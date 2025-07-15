@@ -42,7 +42,7 @@ export default function CreatePostForm({ user }: { user: { name?: string | null;
       body: file,
     })
 
-    const fileUrl = url.split("?")[0]
+    // const fileUrl = url.split("?")[0]
     return fileId
   }
 
@@ -121,7 +121,7 @@ export default function CreatePostForm({ user }: { user: { name?: string | null;
             {previewUrl && file && (
               <div className="mt-4">
                 {file.type.startsWith("image/") ? (
-                  <img src={previewUrl} alt="Selected file" />
+                  <Image src={previewUrl} alt="Selected file" />
                 ) : file.type.startsWith("video/") ? (
                   <video src={previewUrl} controls />
                 ) : null}
