@@ -65,7 +65,7 @@ export default function CreatePostForm({ user }: { user: { name?: string | null;
       setStatusMessage("Post Successful")
     } catch (error) {
       console.error(error)
-      setStatusMessage("Post failed")
+      setStatusMessage("")
     } finally {
       setLoading(false)
     }
@@ -121,7 +121,7 @@ export default function CreatePostForm({ user }: { user: { name?: string | null;
             {previewUrl && file && (
               <div className="mt-4">
                 {file.type.startsWith("image/") ? (
-                  <Image src={previewUrl} alt="Selected file" />
+                  <img src={previewUrl} alt="Selected file" />
                 ) : file.type.startsWith("video/") ? (
                   <video src={previewUrl} controls />
                 ) : null}
