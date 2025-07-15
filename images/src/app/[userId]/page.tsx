@@ -5,18 +5,12 @@ import { db, eq } from "@/db"
 import { userPostsQuery } from "@/db/queries/postFeed"
 import Profile from "./profile"
 
-type ProfilePageProps = {
-  params: {
-    userId: string
-  }
-}
-
-
-export default async function ProfilePage({ params }: ProfilePageProps) {
+export default async function ProfilePage({ params }: {params: Promise<{ userId: string }>}) {  
+  const { userId } = await params
   const user = await db
     .select()
     .from(usersTable)
-    .where(eq(usersTable.id, params.userId))
+    .where(eq(usersTable.id, userId))
     .then((result) => result[0])
 
   if (!user) {

@@ -1,11 +1,8 @@
 import { redirect } from "next/navigation"
 import Link from "next/link"
 
-export default function Search({
-  searchParams,
-}: {
-  searchParams: { q?: string }
-}) {
+export default async function Search({ params }: {params: Promise<{ q: string }>}) {
+  const { q } = await params;
   return (
     <>
       {/* <form action="search"> */}
@@ -14,7 +11,7 @@ export default function Search({
         className="w-full"
         action={async (data) => {
           "use server"
-          console.log("server action")
+          // console.log("server action")
           const q = data.get("q")
           redirect("/search?q=" + q)
         }}
@@ -37,7 +34,7 @@ export default function Search({
             name="q"
             type="text"
             placeholder="Search"
-            defaultValue={searchParams.q}
+            defaultValue={q}
           />
           <Link href="/search" className="flex">
             <svg
@@ -53,7 +50,7 @@ export default function Search({
         </label>
         {/* <button type="submit">Search</button> */}
       </form>
-      {searchParams.q && <div className="mt-10">Search results for {searchParams.q}</div>}
+      {q && <div className="mt-10">Search results for {q}</div>}
     </>
   )
 }
