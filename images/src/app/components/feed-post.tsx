@@ -21,6 +21,16 @@ export default function FeedPost({ post }: { post: Post }) {
         />
       )
     }
+    if (post.media.type === "video"){
+      return (
+        <video 
+          src={post.media.url}
+          width={post.media.width}
+          height={post.media.height}
+          className="rounded-xl"
+        />
+        )
+      }
   }
 
   return (
